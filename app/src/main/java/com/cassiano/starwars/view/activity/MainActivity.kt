@@ -1,7 +1,9 @@
 package com.cassiano.starwars.view.activity
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cassiano.starwars.BR
 import com.cassiano.starwars.R
@@ -35,5 +37,9 @@ class MainActivity : AppCompatActivity() {
             adapter = listAdapter
             layoutManager = LinearLayoutManager(context)
         }
+
+        listAdapter.selectedPilot.observe(this@MainActivity, Observer {
+            Toast.makeText(this, it.pilot?.name, Toast.LENGTH_SHORT).show()
+        })
     }
 }
