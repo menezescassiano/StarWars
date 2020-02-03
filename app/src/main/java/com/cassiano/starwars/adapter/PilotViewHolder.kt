@@ -1,5 +1,7 @@
 package com.cassiano.starwars.adapter
 
+import android.content.Context
+import android.graphics.drawable.Drawable
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.cassiano.starwars.BR
@@ -20,8 +22,23 @@ class PilotViewHolder(private val binding: ViewDataBinding) : RecyclerView.ViewH
                 setVariable(BR.dropOff, dropOff?.name)
                 setVariable(BR.rating, pilot?.rating.toString())
                 setVariable(BR.picture, pilot?.name?.let { DrawableUtils.getAvatar(context, it) })
+                setVariable(BR.star1, pilot?.rating?.let { getStar(context, 1, it) })
+                setVariable(BR.star2, pilot?.rating?.let { getStar(context, 2, it) })
+                setVariable(BR.star3, pilot?.rating?.let { getStar(context, 3, it) })
+                setVariable(BR.star4, pilot?.rating?.let { getStar(context, 4, it) })
+                setVariable(BR.star5, pilot?.rating?.let { getStar(context, 5, it) })
             }
             executePendingBindings()
         }
     }
+
+    private fun getStar(context: Context, index: Int, count: Float): Drawable? {
+        if (count == 0.0f) {
+            return null
+        } else if (index <= count) {
+            return DrawableUtils.getDrawable(context, R.drawable.filled_star)
+        }
+        return DrawableUtils.getDrawable(context, R.drawable.empty_star)
+    }
+
 }
