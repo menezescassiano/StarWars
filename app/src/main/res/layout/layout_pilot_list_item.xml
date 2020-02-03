@@ -10,34 +10,93 @@
         <import type="android.view.View" />
 
         <variable
-            name="text"
+            name="picture"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="name"
             type="String" />
 
         <variable
-            name="icon"
-            type="android.graphics.drawable.Drawable" />
+            name="pickUp"
+            type="String" />
+
+        <variable
+            name="dropOff"
+            type="String" />
+
+        <variable
+            name="rating"
+            type="String" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
+        android:orientation="horizontal"
+        tools:background="#000000">
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:src="@{icon}" />
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:src="@{picture}"
+            tools:src="@drawable/admiral_ackbar" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@{text}"
-            tools:text="Um texto aqui" />
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical"
+            tools:ignore="RtlCompat">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@{name}"
+                tools:text="name"
+                tools:targetApi="jelly_bean" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#818181"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@{pickUp}"
+                    tools:text="aabcbac"
+                    tools:targetApi="jelly_bean" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp"
+                    tools:ignore="RtlCompat"
+                    android:src="@drawable/ic_arrow"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:textColor="#818181"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@{dropOff}"
+                    tools:text="bbbbbbbbbbb"
+                    tools:ignore="RtlCompat"
+                    tools:targetApi="jelly_bean"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{rating}"
+                tools:text="5.0" />
+        </LinearLayout>
     </LinearLayout>
+
 </layout>
