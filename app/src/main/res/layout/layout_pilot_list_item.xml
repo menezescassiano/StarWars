@@ -63,8 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
-            android:orientation="vertical"
-            tools:ignore="RtlCompat">
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -72,8 +71,7 @@
                 android:textColor="#ffffff"
                 android:fontFamily="@font/roboto_bold"
                 android:text="@{name}"
-                tools:text="name"
-                tools:targetApi="jelly_bean" />
+                tools:text="name" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,14 +83,12 @@
                     android:textColor="#818181"
                     android:fontFamily="@font/roboto_medium"
                     android:text="@{pickUp}"
-                    tools:text="aabcbac"
-                    tools:targetApi="jelly_bean" />
+                    tools:text="aabcbac" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="16dp"
-                    tools:ignore="RtlCompat"
                     android:src="@drawable/ic_arrow"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -101,9 +97,7 @@
                     android:textColor="#818181"
                     android:fontFamily="@font/roboto_medium"
                     android:text="@{dropOff}"
-                    tools:text="bbbbbbbbbbb"
-                    tools:ignore="RtlCompat"
-                    tools:targetApi="jelly_bean"/>
+                    tools:text="bbbbbbbbbbb" />
             </LinearLayout>
 
             <LinearLayout
