@@ -1,21 +1,20 @@
-package com.cassiano.starwars
+package com.cassiano.starwars.viewmodel
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
 import com.cassiano.starwars.extension.saveMainThread
+import com.cassiano.starwars.model.PilotData
 import com.cassiano.starwars.network.RetrofitClient
 
-class MainActivity : AppCompatActivity() {
+class MainViewModel(application: Application) : AndroidViewModel(application) {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        getdata()
-    }
+    lateinit var list: ArrayList<PilotData>
+    val responseData: MutableLiveData<Boolean> = MutableLiveData()
 
     @SuppressLint("CheckResult")
-    private fun getdata() {
+    fun getData() {
         //RetrofitClient.getInstance().model.getTrips()
         RetrofitClient.getInstance().model.getTrips()
             .saveMainThread()
@@ -24,12 +23,8 @@ class MainActivity : AppCompatActivity() {
             }
             .subscribe(
                 { response ->
-                    println("Ok")
-                    /*running.set(false)
-                    response?.vehicles?.let {
-                        dataSetup(it)
-                        vehiclesList = it
-                    }*/
+                    list = response as ArrayList<PilotData>
+                    responseData.postValue(true)
                 }, {
                     //running.set(false)
                     println("not-Ok")

@@ -8,11 +8,4 @@ import kotlinx.android.parcel.Parcelize
 class Pilot(
     @SerializedName("name") val name: String="",
     @SerializedName("avatar") val avatar: String="",
-    @SerializedName("rating") val rating: Float=0.0f): Parcelable
-    /*
-    "pilot": {
-      "name": "Dark Vador",
-      "avatar": "/static/dark-vador.png",
-      "rating": 5.0
-    }
-     */
+    @SerializedName("rating") val rating: Float = 0.0f): Parcelable
