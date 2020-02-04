@@ -7,4 +7,6 @@
     <string name="arrival">Arrival</string>
     <string name="trip_distance">Trip Distance</string>
     <string name="trip_duration">Trip Duration</string>
+    <string name="km_text">%s KM</string>
+    <string name="hh_min">"%d:%02d"</string>
 </resources>

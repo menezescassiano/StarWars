@@ -14,6 +14,10 @@
             type="com.cassiano.starwars.viewmodel.PilotDetailsViewModel" />
 
         <variable
+            name="drawable"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
             name="title"
             type="String" />
 
@@ -120,7 +124,8 @@
                         android:layout_width="72dp"
                         android:layout_height="72dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/yoda" />
+                        android:src="@{drawable}"
+                        tools:src="@drawable/yoda" />
 
                     <TextView
                         android:layout_width="match_parent"

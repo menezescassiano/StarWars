@@ -6,6 +6,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 class Distance(
-    @SerializedName("value") val value: Float = 0.0f,
+    @SerializedName("value") val value: Long = 0,
     @SerializedName("unit") val unit: String = ""
 ) : Parcelable

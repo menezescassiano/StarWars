@@ -2,11 +2,12 @@ package com.cassiano.starwars.utils
 
 import android.annotation.SuppressLint
 import java.text.DateFormat
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
 @SuppressLint("SimpleDateFormat")
-object DateFormatUtils {
+object StringFormatUtils {
 
     private const val DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss"
     private const val HOUR_FORMAT = "h:mm a"
@@ -19,6 +20,11 @@ object DateFormatUtils {
     private fun getDate(date: String): Date? {
         val dateFormat: DateFormat = SimpleDateFormat(DATE_FORMAT)
         return dateFormat.parse(date)
+    }
+
+    fun getDistanceFormated(number: Long): String {
+        val formatter = DecimalFormat("#,###,###")
+        return formatter.format(number)
     }
 
 }

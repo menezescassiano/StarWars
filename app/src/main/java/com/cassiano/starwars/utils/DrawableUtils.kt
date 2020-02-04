@@ -37,4 +37,13 @@ object DrawableUtils {
             else -> getDrawable(context, R.drawable.admiral_ackbar)
         }
     }
+
+    fun getStarRating(context: Context, index: Int, count: Float): Drawable? {
+        if (count == 0.0f) {
+            return null
+        } else if (index <= count) {
+            return DrawableUtils.getDrawable(context, R.drawable.filled_star)
+        }
+        return DrawableUtils.getDrawable(context, R.drawable.empty_star)
+    }
 }
