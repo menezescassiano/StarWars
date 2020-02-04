@@ -26,12 +26,20 @@ class PilotDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         viewModel = PilotDetailsViewModel(application)
+        setBinding()
+
+        setSupportActionBar(toolbar)
+    }
+
+    private fun setBinding() {
         val pilot = intent.extras?.getParcelable<PilotData>(BUNDLE_PILOT)
+        val pilotRating = pilot?.pilot?.rating
 
         binding = bindingContentView(R.layout.activity_pilot_details).also {
             it.setVariable(BR.viewModel, viewModel)
             it.setVariable(BR.onBackClick, View.OnClickListener { finish() })
-            it.setVariable(BR.drawable, pilot?.pilot?.name?.let { name -> DrawableUtils.getAvatar(this, name) })
+            it.setVariable(BR.pickUpDrawable, pilot?.pickUp?.name?.let { it1 -> DrawableUtils.getPlanet(this, it1) })
+            it.setVariable(BR.dropOffDrawable, pilot?.dropOff?.name?.let { it1 -> DrawableUtils.getPlanet(this, it1) })
             it.setVariable(BR.title, pilot?.pilot?.name)
             it.setVariable(BR.pickUp, pilot?.pickUp?.name)
             it.setVariable(
@@ -40,16 +48,18 @@ class PilotDetailsActivity : AppCompatActivity() {
             it.setVariable(
                 BR.dropOff,
                 pilot?.dropOff?.date?.let { date -> StringFormatUtils.getTime(date) })
-            it.setVariable(BR.distance, pilot?.distance?.value?.let { distance -> getString(R.string.km_text, StringFormatUtils.getDistanceFormated(distance)) })
-            it.setVariable(BR.duration, pilot?.duration?.let { it1 -> getTimeInH(it1) })
-            it.setVariable(BR.star1, pilot?.pilot?.rating?.let { rating -> DrawableUtils.getStarRating(this, 1, rating) })
-            it.setVariable(BR.star2, pilot?.pilot?.rating?.let { rating -> DrawableUtils.getStarRating(this, 2, rating) })
-            it.setVariable(BR.star3, pilot?.pilot?.rating?.let { rating -> DrawableUtils.getStarRating(this, 3, rating) })
-            it.setVariable(BR.star4, pilot?.pilot?.rating?.let { rating -> DrawableUtils.getStarRating(this, 4, rating) })
-            it.setVariable(BR.star5, pilot?.pilot?.rating?.let { rating -> DrawableUtils.getStarRating(this, 5, rating) })
-            it.setVariable(BR.textVisibility, pilot?.pilot?.rating?.let { rating -> setRatingTextVisibility(rating) })
+            it.setVariable(
+                BR.distance,
+                pilot?.distance?.value?.let { distance -> getString(R.string.km_text, StringFormatUtils.getDistanceFormated(distance)) })
+            it.setVariable(BR.duration, pilot?.duration?.let { duration -> getTimeInH(duration) })
+            it.setVariable(BR.textVisibility, pilotRating?.let { rating -> setRatingTextVisibility(rating) })
+
+            it.setVariable(BR.star1, pilotRating?.let { rating -> DrawableUtils.getStarRating(this, 1, rating) })
+            it.setVariable(BR.star2, pilotRating?.let { rating -> DrawableUtils.getStarRating(this, 2, rating) })
+            it.setVariable(BR.star3, pilotRating?.let { rating -> DrawableUtils.getStarRating(this, 3, rating) })
+            it.setVariable(BR.star4, pilotRating?.let { rating -> DrawableUtils.getStarRating(this, 4, rating) })
+            it.setVariable(BR.star5, pilotRating?.let { rating -> DrawableUtils.getStarRating(this, 5, rating) })
         } as ActivityPilotDetailsBinding
-        setSupportActionBar(toolbar)
     }
 
     private fun getTimeInH(seconds: Int): String {
@@ -60,7 +70,9 @@ class PilotDetailsActivity : AppCompatActivity() {
     }
 
     private fun setRatingTextVisibility(rating: Float): Int {
-        if (rating > 0.0) { return View.GONE }
+        if (rating > 0.0) {
+            return View.GONE
+        }
 
         return View.VISIBLE
     }

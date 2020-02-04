@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 import com.cassiano.starwars.R
 import com.cassiano.starwars.enum.PilotName.*
+import com.cassiano.starwars.enum.PlanetName
 
 object DrawableUtils {
 
@@ -35,6 +36,17 @@ object DrawableUtils {
             LUKE.pilot -> getDrawable(context, R.drawable.luke)
             YODA.pilot -> getDrawable(context, R.drawable.yoda)
             else -> getDrawable(context, R.drawable.admiral_ackbar)
+        }
+    }
+
+    fun getPlanet(context: Context, name: String): Drawable? {
+        return when(name) {
+            PlanetName.CORUSCANT.planet -> getDrawable(context, R.drawable.coruscant)
+            PlanetName.HOTH.planet -> getDrawable(context, R.drawable.hoth)
+            PlanetName.NABOO.planet -> getDrawable(context, R.drawable.naboo)
+            PlanetName.TATOOINE.planet -> getDrawable(context, R.drawable.tatooine)
+            PlanetName.YAVIN.planet -> getDrawable(context, R.drawable.yavin)
+            else -> getDrawable(context, R.drawable.earth)
         }
     }
 
