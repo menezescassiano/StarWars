@@ -24,6 +24,38 @@
         <variable
             name="dropOff"
             type="String" />
+
+        <variable
+            name="onBackClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="distance"
+            type="String" />
+
+        <variable
+            name="duration"
+            type="String" />
+
+        <variable
+            name="star1"
+            type="android.graphics.drawable.Drawable" />
+        <variable
+            name="star2"
+            type="android.graphics.drawable.Drawable" />
+        <variable
+            name="star3"
+            type="android.graphics.drawable.Drawable" />
+        <variable
+            name="star4"
+            type="android.graphics.drawable.Drawable" />
+        <variable
+            name="star5"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="textVisibility"
+            type="Integer" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -44,6 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
+                app:layout_collapseMode="pin"
                 app:contentScrim="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:toolbarId="@+id/toolbar">
@@ -54,7 +87,10 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
+                    app:contentInsetStart="0dp"
                     app:layout_collapseMode="pin"
+                    android:onClick="@{onBackClick}"
+                    app:navigationIcon="@drawable/ic_back"
                     app:popupTheme="@style/AppTheme.PopupOverlay" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -101,8 +137,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="24dp">
 
                     <include
                         layout="@layout/layout_itinerary"
@@ -122,6 +157,34 @@
                         app:planet="@{dropOff}" />
 
                 </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp">
+                    <include
+                        layout="@layout/layout_distance_duration"
+                        android:layout_width="144dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        app:title="@{@string/trip_distance}"
+                        app:text="@{distance}" />
+                    <include
+                        layout="@layout/layout_distance_duration"
+                        android:layout_width="144dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="24dp"
+                        app:title="@{@string/trip_duration}"
+                        app:text="@{duration}" />
+                </RelativeLayout>
+                <include
+                    layout="@layout/layout_pilot_rating"
+                    app:star1="@{star1}"
+                    app:star2="@{star2}"
+                    app:star3="@{star3}"
+                    app:star4="@{star4}"
+                    app:star5="@{star5}"
+                    app:textVisibility="@{textVisibility}"/>
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>

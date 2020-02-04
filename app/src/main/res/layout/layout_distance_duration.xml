@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.cassiano.starwars.R" />
+
+        <variable
+            name="viewModel"
+            type="com.cassiano.starwars.viewmodel.PilotDetailsViewModel" />
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="text"
+            type="String" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:background="@color/black">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@{title}"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="#818181"
+            tools:text="Trip Distance"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{text}"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            tools:text="2,478,572 KM"/>
+    </LinearLayout>
+</layout>
