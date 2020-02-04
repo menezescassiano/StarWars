@@ -7,9 +7,9 @@ import com.cassiano.starwars.BR
 import com.cassiano.starwars.R
 import com.cassiano.starwars.databinding.ActivityPilotDetailsBinding
 import com.cassiano.starwars.extension.bindingContentView
-import com.cassiano.starwars.extension.withViewModel
 import com.cassiano.starwars.model.PilotData
 import com.cassiano.starwars.utils.DateFormatUtils
+import com.cassiano.starwars.view.activity.MainActivity.Companion.BUNDLE_PILOT
 import com.cassiano.starwars.viewmodel.PilotDetailsViewModel
 import kotlinx.android.synthetic.main.activity_pilot_details.*
 
@@ -23,12 +23,8 @@ class PilotDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel = withViewModel({ PilotDetailsViewModel(application) }) {
-            /*observe(responseData) {
-                setRecyclerView()
-            }*/
-        }
-        val pilot = intent.extras?.getParcelable<PilotData>("PILOT")
+        viewModel = PilotDetailsViewModel(application)
+        val pilot = intent.extras?.getParcelable<PilotData>(BUNDLE_PILOT)
 
         binding = bindingContentView(R.layout.activity_pilot_details).also {
             it.setVariable(BR.viewModel, viewModel)

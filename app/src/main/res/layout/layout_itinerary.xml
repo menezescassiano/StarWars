@@ -30,7 +30,7 @@
         android:layout_width="144dp"
         android:layout_height="64dp"
         android:orientation="vertical"
-        tools:background="#000000">
+        tools:background="@color/black">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,14 +45,14 @@
             android:text="@{planet}"
             android:fontFamily="@font/roboto_bold"
             android:textSize="16sp"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             tools:text="Yavin 4"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{date}"
             android:fontFamily="@font/roboto_bold"
-            android:textColor="#818181"
+            android:textColor="@color/grey1"
             tools:text="2:12 PM" />
     </LinearLayout>
 </layout>

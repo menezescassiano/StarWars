@@ -15,8 +15,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     lateinit var list: ArrayList<PilotData>
     val responseData: MutableLiveData<Boolean> = MutableLiveData()
-    private val running = ObservableBoolean(false)
+    val responseError: MutableLiveData<Boolean> = MutableLiveData()
     val progressVisibility = ObservableInt(0)
+    val tryAgainVisibility = ObservableInt(View.GONE)
+    private val running = ObservableBoolean(false)
 
     @SuppressLint("CheckResult")
     fun getData() {
@@ -35,7 +37,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     list = response as ArrayList<PilotData>
                     responseData.postValue(true)
                 }, {
-                    println("not-Ok")
+                    responseError.postValue(true)
                 })
     }
 

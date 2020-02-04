@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        tools:background="#000000">
+        tools:background="@color/black">
         <ImageView
             android:layout_width="56dp"
             android:layout_height="56dp"
@@ -68,7 +68,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#ffffff"
+                android:textColor="@color/white"
                 android:fontFamily="@font/roboto_bold"
                 android:text="@{name}"
                 tools:text="name" />
@@ -80,7 +80,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#818181"
+                    android:textColor="@color/grey1"
                     android:fontFamily="@font/roboto_medium"
                     android:text="@{pickUp}"
                     tools:text="aabcbac" />
@@ -94,7 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:textColor="#818181"
+                    android:textColor="@color/grey1"
                     android:fontFamily="@font/roboto_medium"
                     android:text="@{dropOff}"
                     tools:text="bbbbbbbbbbb" />

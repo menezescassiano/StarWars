@@ -2,6 +2,7 @@ package com.cassiano.starwars.view.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +17,10 @@ import com.cassiano.starwars.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        const val BUNDLE_PILOT = "BUNDLE_PILOT"
+    }
+
     private lateinit var viewModel: MainViewModel
     private lateinit var binding: ActivityMainBinding
 
@@ -25,8 +30,14 @@ class MainActivity : AppCompatActivity() {
             observe(responseData) {
                 setRecyclerView()
             }
+            observe(responseError) {
+                setTryAgainVisibility()
+            }
         }
-        binding = bindingContentView(R.layout.activity_main).also { it.setVariable(BR.viewModel, viewModel) } as ActivityMainBinding
+        binding = bindingContentView(R.layout.activity_main).also {
+            it.setVariable(BR.viewModel, viewModel)
+            it.setVariable(BR.onTryAgainClick, View.OnClickListener { tryAgain() })
+        } as ActivityMainBinding
         viewModel.getData()
     }
 
@@ -40,8 +51,21 @@ class MainActivity : AppCompatActivity() {
 
         listAdapter.selectedPilot.observe(this@MainActivity, Observer {
             val intent = Intent(this, PilotDetailsActivity::class.java)
-            intent.putExtra("PILOT", it)
+            intent.putExtra(BUNDLE_PILOT, it)
             startActivity(intent)
         })
     }
+
+    private fun setTryAgainVisibility() {
+        viewModel.tryAgainVisibility.set(View.VISIBLE)
+    }
+
+    private fun tryAgain() {
+        viewModel.apply {
+            getData()
+            tryAgainVisibility.set(View.GONE)
+        }
+
+    }
+
 }
