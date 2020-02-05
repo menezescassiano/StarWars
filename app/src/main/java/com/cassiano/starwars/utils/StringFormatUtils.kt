@@ -1,6 +1,8 @@
 package com.cassiano.starwars.utils
 
 import android.annotation.SuppressLint
+import android.content.Context
+import com.cassiano.starwars.R
 import java.text.DateFormat
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -25,6 +27,14 @@ object StringFormatUtils {
     fun getDistanceFormated(number: Long): String {
         val formatter = DecimalFormat("#,###,###")
         return formatter.format(number)
+    }
+
+    fun getHourMinSecFormat(context: Context, milliseconds: Int): String {
+        val seconds = (milliseconds / 1000) % 60
+        val minutes = (milliseconds / (1000 * 60) % 60)
+        val hours = (milliseconds / (1000 * 60 * 60) % 24)
+
+        return context.getString(R.string.hh_min_ss, hours, minutes, seconds)
     }
 
 }

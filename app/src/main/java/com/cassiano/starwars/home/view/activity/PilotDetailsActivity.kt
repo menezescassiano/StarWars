@@ -9,10 +9,10 @@ import com.cassiano.starwars.R
 import com.cassiano.starwars.databinding.ActivityPilotDetailsBinding
 import com.cassiano.starwars.extension.bindingContentView
 import com.cassiano.starwars.home.model.PilotData
-import com.cassiano.starwars.utils.DrawableUtils
-import com.cassiano.starwars.utils.StringFormatUtils
 import com.cassiano.starwars.home.view.activity.MainActivity.Companion.BUNDLE_PILOT
 import com.cassiano.starwars.home.viewmodel.PilotDetailsViewModel
+import com.cassiano.starwars.utils.DrawableUtils
+import com.cassiano.starwars.utils.StringFormatUtils
 import kotlinx.android.synthetic.main.activity_pilot_details.*
 
 
@@ -20,7 +20,7 @@ class PilotDetailsActivity : AppCompatActivity() {
 
     lateinit var viewModel: PilotDetailsViewModel
     lateinit var binding: ActivityPilotDetailsBinding
-    val activity = this@PilotDetailsActivity
+    private val activity = this@PilotDetailsActivity
 
     @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,15 +45,15 @@ class PilotDetailsActivity : AppCompatActivity() {
             setVariable(BR.title, pilot?.pilot?.name)
             setVariable(BR.pickUp, pilot?.pickUp?.name)
             setVariable(
-             BR.pickUp,
-             pilot?.pickUp?.date?.let { date -> StringFormatUtils.getTime(date) })
+                BR.pickUp,
+                pilot?.pickUp?.date?.let { date -> StringFormatUtils.getTime(date) })
             setVariable(
-             BR.dropOff,
-             pilot?.dropOff?.date?.let { date -> StringFormatUtils.getTime(date) })
+                BR.dropOff,
+                pilot?.dropOff?.date?.let { date -> StringFormatUtils.getTime(date) })
             setVariable(
-             BR.distance,
-             pilot?.distance?.value?.let { distance -> getString(R.string.km_text, StringFormatUtils.getDistanceFormated(distance)) })
-            setVariable(BR.duration, pilot?.duration?.let { duration -> getTimeInH(duration) })
+                BR.distance,
+                pilot?.distance?.value?.let { distance -> getString(R.string.km_text, StringFormatUtils.getDistanceFormated(distance)) })
+            setVariable(BR.duration, pilot?.duration?.let { duration -> StringFormatUtils.getHourMinSecFormat(activity, duration) })
             setVariable(BR.textVisibility, pilotRating?.let { rating -> setRatingTextVisibility(rating) })
 
             setVariable(BR.star1, pilotRating?.let { rating -> DrawableUtils.getStarRating(activity, 1, rating) })
@@ -62,13 +62,6 @@ class PilotDetailsActivity : AppCompatActivity() {
             setVariable(BR.star4, pilotRating?.let { rating -> DrawableUtils.getStarRating(activity, 4, rating) })
             setVariable(BR.star5, pilotRating?.let { rating -> DrawableUtils.getStarRating(activity, 5, rating) })
         } as ActivityPilotDetailsBinding
-    }
-
-    private fun getTimeInH(seconds: Int): String {
-        val hours: Int = seconds / 60 / 60//since both are ints, you get an int
-
-        val minutes: Int = seconds % 60
-        return getString(R.string.hh_min, hours, minutes)
     }
 
     private fun setRatingTextVisibility(rating: Float): Int {
