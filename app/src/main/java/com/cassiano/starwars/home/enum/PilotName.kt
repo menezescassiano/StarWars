@@ -1,4 +1,4 @@
-package com.cassiano.starwars.enum
+package com.cassiano.starwars.home.enum
 
 enum class PilotName(val pilot: String) {
     DARK_VADOR("Dark Vador"),

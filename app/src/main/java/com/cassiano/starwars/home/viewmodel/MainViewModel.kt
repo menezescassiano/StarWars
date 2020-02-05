@@ -1,4 +1,4 @@
-package com.cassiano.starwars.viewmodel
+package com.cassiano.starwars.home.viewmodel
 
 import android.annotation.SuppressLint
 import android.app.Application
@@ -8,7 +8,7 @@ import androidx.databinding.ObservableInt
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.cassiano.starwars.extension.saveMainThread
-import com.cassiano.starwars.model.PilotData
+import com.cassiano.starwars.home.model.PilotData
 import com.cassiano.starwars.network.RetrofitClient
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {

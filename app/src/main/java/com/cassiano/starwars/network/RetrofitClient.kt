@@ -16,11 +16,7 @@ class RetrofitClient : Interceptor {
         private var instance: RetrofitClient? = null
 
         fun getInstance(): RetrofitClient {
-            if (instance == null) {
-                instance = RetrofitClient()
-            }
-
-            return instance as RetrofitClient
+            instance?.let { return instance as RetrofitClient } ?: return RetrofitClient()
         }
     }
 

@@ -1,4 +1,4 @@
-package com.cassiano.starwars.view.activity
+package com.cassiano.starwars.home.view.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,12 +8,12 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cassiano.starwars.BR
 import com.cassiano.starwars.R
-import com.cassiano.starwars.adapter.PilotListAdapter
+import com.cassiano.starwars.home.adapter.PilotListAdapter
 import com.cassiano.starwars.databinding.ActivityMainBinding
 import com.cassiano.starwars.extension.bindingContentView
 import com.cassiano.starwars.extension.observe
 import com.cassiano.starwars.extension.withViewModel
-import com.cassiano.starwars.viewmodel.MainViewModel
+import com.cassiano.starwars.home.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,9 +34,9 @@ class MainActivity : AppCompatActivity() {
                 setTryAgainVisibility()
             }
         }
-        binding = bindingContentView(R.layout.activity_main).also {
-            it.setVariable(BR.viewModel, viewModel)
-            it.setVariable(BR.onTryAgainClick, View.OnClickListener { tryAgain() })
+        binding = bindingContentView(R.layout.activity_main).apply {
+            setVariable(BR.viewModel, viewModel)
+            setVariable(BR.onTryAgainClick, View.OnClickListener { tryAgain() })
         } as ActivityMainBinding
         viewModel.getData()
     }

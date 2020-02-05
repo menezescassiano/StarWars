@@ -7,12 +7,12 @@ import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 import com.cassiano.starwars.R
-import com.cassiano.starwars.enum.PilotName.*
-import com.cassiano.starwars.enum.PlanetName
+import com.cassiano.starwars.home.enum.PilotName.*
+import com.cassiano.starwars.home.enum.PlanetName
 
 object DrawableUtils {
 
-    fun getDrawable(context: Context, @DrawableRes drawableRes: Int): Drawable? {
+    private fun getDrawable(context: Context, @DrawableRes drawableRes: Int): Drawable? {
         return try {
             ContextCompat.getDrawable(context, drawableRes)
                 ?: VectorDrawableCompat.create(context.resources, drawableRes, null)
@@ -54,8 +54,8 @@ object DrawableUtils {
         if (count == 0.0f) {
             return null
         } else if (index <= count) {
-            return DrawableUtils.getDrawable(context, R.drawable.filled_star)
+            return getDrawable(context, R.drawable.filled_star)
         }
-        return DrawableUtils.getDrawable(context, R.drawable.empty_star)
+        return getDrawable(context, R.drawable.empty_star)
     }
 }

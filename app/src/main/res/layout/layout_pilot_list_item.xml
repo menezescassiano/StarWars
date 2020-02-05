@@ -26,10 +26,6 @@
             type="String" />
 
         <variable
-            name="rating"
-            type="String" />
-
-        <variable
             name="star1"
             type="android.graphics.drawable.Drawable" />
         <variable

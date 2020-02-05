@@ -11,7 +11,7 @@
 
         <variable
             name="viewModel"
-            type="com.cassiano.starwars.viewmodel.PilotDetailsViewModel" />
+            type="com.cassiano.starwars.home.viewmodel.PilotDetailsViewModel" />
 
         <variable
             name="title"

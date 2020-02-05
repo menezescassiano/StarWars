@@ -1,4 +1,4 @@
-package com.cassiano.starwars.enum
+package com.cassiano.starwars.home.enum
 
 enum class PlanetName(val planet: String) {
     CORUSCANT("Coruscant"),

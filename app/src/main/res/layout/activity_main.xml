@@ -10,7 +10,7 @@
 
         <variable
             name="viewModel"
-            type="com.cassiano.starwars.viewmodel.MainViewModel" />
+            type="com.cassiano.starwars.home.viewmodel.MainViewModel" />
 
         <variable
             name="onTryAgainClick"

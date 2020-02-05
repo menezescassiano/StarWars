@@ -1,4 +1,4 @@
-package com.cassiano.starwars.model
+package com.cassiano.starwars.home.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

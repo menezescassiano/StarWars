@@ -11,7 +11,7 @@
 
         <variable
             name="viewModel"
-            type="com.cassiano.starwars.viewmodel.PilotDetailsViewModel" />
+            type="com.cassiano.starwars.home.viewmodel.PilotDetailsViewModel" />
 
         <variable
             name="pickUpDrawable"
@@ -74,7 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context=".view.activity.PilotDetailsActivity">
+        tools:context=".home.view.activity.PilotDetailsActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar"
@@ -116,7 +116,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/background"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:context=".view.activity.PilotDetailsActivity"
+            tools:context=".home.view.activity.PilotDetailsActivity"
             tools:showIn="@layout/activity_pilot_details">
 
             <LinearLayout

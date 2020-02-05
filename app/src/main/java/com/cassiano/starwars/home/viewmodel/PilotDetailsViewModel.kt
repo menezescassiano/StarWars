@@ -1,4 +1,4 @@
-package com.cassiano.starwars.viewmodel
+package com.cassiano.starwars.home.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

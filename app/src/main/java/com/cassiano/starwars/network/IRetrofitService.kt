@@ -1,6 +1,6 @@
 package com.cassiano.starwars.network
 
-import com.cassiano.starwars.model.PilotData
+import com.cassiano.starwars.home.model.PilotData
 import io.reactivex.Single
 import okhttp3.ResponseBody
 import retrofit2.http.GET

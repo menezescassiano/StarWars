@@ -1,4 +1,4 @@
-package com.cassiano.starwars.adapter
+package com.cassiano.starwars.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.cassiano.starwars.R
-import com.cassiano.starwars.model.PilotData
+import com.cassiano.starwars.home.model.PilotData
 
 class PilotListAdapter(private val list: ArrayList<PilotData>) :
     RecyclerView.Adapter<PilotViewHolder>() {
