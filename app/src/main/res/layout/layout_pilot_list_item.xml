@@ -71,7 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:fontFamily="@font/roboto_bold"
+                    style="@style/PilotNameListItem"
                     android:text="@{name}"
                     tools:text="name" />
                 <LinearLayout
@@ -82,9 +82,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/grey1"
-                        android:fontFamily="@font/roboto_medium"
                         android:text="@{pickUp}"
+                        style="@style/CommonText"
                         tools:text="aabcbac" />
                     <ImageView
                         android:layout_width="wrap_content"
@@ -96,9 +95,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:textColor="@color/grey1"
-                        android:fontFamily="@font/roboto_medium"
                         android:text="@{dropOff}"
+                        style="@style/CommonText"
                         tools:text="bbbbbbbbbbb" />
                 </LinearLayout>
                 <LinearLayout

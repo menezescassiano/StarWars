@@ -22,7 +22,7 @@
             type="String" />
 
         <variable
-            name="date"
+            name="time"
             type="String" />
     </data>
 
@@ -36,23 +36,19 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:text="@{title}"
-            android:fontFamily="@font/roboto_medium"
-            android:textColor="#818181"
+            style="@style/CommonText"
             tools:text="Departure"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{planet}"
-            android:fontFamily="@font/roboto_bold"
-            android:textSize="16sp"
-            android:textColor="@color/white"
+            style="@style/WhiteTextDetails"
             tools:text="Yavin 4"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{date}"
-            android:fontFamily="@font/roboto_bold"
-            android:textColor="@color/grey1"
+            android:text="@{time}"
+            style="@style/CommonSubText"
             tools:text="2:12 PM" />
     </LinearLayout>
 </layout>

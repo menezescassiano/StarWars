@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        title = getString(R.string.last_trips)
         viewModel = withViewModel({ MainViewModel(application) }) {
             observe(responseData) {
                 setRecyclerView()

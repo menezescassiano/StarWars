@@ -45,10 +45,11 @@ class PilotDetailsActivity : AppCompatActivity() {
             setVariable(BR.title, pilot?.pilot?.name)
             setVariable(BR.pickUp, pilot?.pickUp?.name)
             setVariable(
-                BR.pickUp,
+                BR.timeDeparture,
                 pilot?.pickUp?.date?.let { date -> StringFormatUtils.getTime(date) })
+            setVariable(BR.dropOff, pilot?.dropOff?.name)
             setVariable(
-                BR.dropOff,
+                BR.timeArrival,
                 pilot?.dropOff?.date?.let { date -> StringFormatUtils.getTime(date) })
             setVariable(
                 BR.distance,

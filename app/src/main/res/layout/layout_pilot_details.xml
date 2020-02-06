@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.cassiano.starwars.R" />
+
+        <variable
+            name="pickUpDrawable"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="dropOffDrawable"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="drawable"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="pickUp"
+            type="String" />
+
+        <variable
+            name="timeDeparture"
+            type="String" />
+
+        <variable
+            name="timeArrival"
+            type="String" />
+
+        <variable
+            name="dropOff"
+            type="String" />
+
+        <variable
+            name="onBackClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="distance"
+            type="String" />
+
+        <variable
+            name="duration"
+            type="String" />
+
+        <variable
+            name="star1"
+            type="android.graphics.drawable.Drawable" />
+        <variable
+            name="star2"
+            type="android.graphics.drawable.Drawable" />
+        <variable
+            name="star3"
+            type="android.graphics.drawable.Drawable" />
+        <variable
+            name="star4"
+            type="android.graphics.drawable.Drawable" />
+        <variable
+            name="star5"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="textVisibility"
+            type="Integer" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:background="@color/black"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="24dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:src="@{drawable}"
+                tools:src="@drawable/yoda" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/text_margin"
+                android:text="@{title}"
+                android:textColor="@color/white"
+                style="@style/PilotNameDetailsTitle"
+                tools:text="Yoda" />
+        </LinearLayout>
+
+        <View
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey1"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <include
+                layout="@layout/layout_itinerary"
+                android:layout_width="144dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="24dp"
+                app:title="@{@string/departure}"
+                app:planet="@{pickUp}"
+                app:time="@{timeDeparture}"/>
+
+            <include
+                layout="@layout/layout_itinerary"
+                android:layout_width="144dp"
+                android:layout_height="64dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="24dp"
+                app:title="@{@string/arrival}"
+                app:planet="@{dropOff}"
+                app:time="@{timeArrival}"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+            <include
+                layout="@layout/layout_distance_duration"
+                android:layout_width="144dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                app:title="@{@string/trip_distance}"
+                app:text="@{distance}" />
+            <include
+                layout="@layout/layout_distance_duration"
+                android:layout_width="144dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="24dp"
+                app:title="@{@string/trip_duration}"
+                app:text="@{duration}" />
+        </RelativeLayout>
+        <include
+            layout="@layout/layout_pilot_rating"
+            app:star1="@{star1}"
+            app:star2="@{star2}"
+            app:star3="@{star3}"
+            app:star4="@{star4}"
+            app:star5="@{star5}"
+            app:textVisibility="@{textVisibility}"/>
+    </LinearLayout>
+</layout>

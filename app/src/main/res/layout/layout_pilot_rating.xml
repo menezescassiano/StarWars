@@ -85,6 +85,7 @@
             android:fontFamily="@font/roboto_medium"
             android:textColor="@color/grey1"
             android:visibility="@{textVisibility}"
+            android:letterSpacing="0.21"
             android:text="USER DIDN'T RATE YET"/>
     </LinearLayout>
 
