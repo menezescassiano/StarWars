@@ -45,9 +45,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_medium"
-            android:textColor="@color/grey1"
-            android:text="Pilot Rating"/>
+            style="@style/CommonText"
+            android:text="@string/pilot_rating"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,11 +81,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_medium"
-            android:textColor="@color/grey1"
+            style="@style/CommonText"
             android:visibility="@{textVisibility}"
-            android:letterSpacing="0.21"
-            android:text="USER DIDN'T RATE YET"/>
+            android:letterSpacing="0.19"
+            android:text="@string/pilot_no_rating"/>
     </LinearLayout>
 
 </layout>

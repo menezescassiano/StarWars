@@ -22,28 +22,18 @@
         android:layout_height="match_parent"
         android:background="@drawable/background">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Last trips" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:listitem="@layout/layout_pilot_list_item" />
-        </LinearLayout>
+            tools:listitem="@layout/layout_pilot_list_item" />
 
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:visibility="@{viewModel.progressVisibility}" />
+            android:visibility="@{viewModel.progressVisibility}"
+            tools:visibility="gone"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -55,7 +45,8 @@
             android:onClick="@{onTryAgainClick}"
             android:visibility="@{viewModel.tryAgainVisibility}"
             android:textColor="@color/white"
-            android:text="Something went wrong.\nClick to try again."/>
+            android:text="@string/try_again"
+            tools:visibility="gone"/>
     </RelativeLayout>
 
 </layout>

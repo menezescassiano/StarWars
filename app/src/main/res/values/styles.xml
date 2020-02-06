@@ -25,6 +25,7 @@
 
     <style name="CommonText" parent="AppTheme">
         <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/grey1</item>
     </style>
 
