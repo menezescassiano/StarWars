@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setRecyclerView() {
-        binding.recyclerView
         val listAdapter = PilotListAdapter(viewModel.list)
         binding.recyclerView.apply {
             adapter = listAdapter
