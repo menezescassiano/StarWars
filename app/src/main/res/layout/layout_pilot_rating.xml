@@ -14,22 +14,6 @@
             type="String" />
 
         <variable
-            name="star1"
-            type="android.graphics.drawable.Drawable" />
-        <variable
-            name="star2"
-            type="android.graphics.drawable.Drawable" />
-        <variable
-            name="star3"
-            type="android.graphics.drawable.Drawable" />
-        <variable
-            name="star4"
-            type="android.graphics.drawable.Drawable" />
-        <variable
-            name="star5"
-            type="android.graphics.drawable.Drawable" />
-
-        <variable
             name="textVisibility"
             type="Integer" />
     </data>
@@ -47,37 +31,11 @@
             android:layout_height="wrap_content"
             style="@style/CommonText"
             android:text="@string/pilot_rating"/>
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ratingRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@{star1}"
-                tools:src="@drawable/filled_star"/>
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@{star2}"
-                tools:src="@drawable/filled_star"/>
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@{star3}"
-                tools:src="@drawable/filled_star"/>
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@{star4}"
-                tools:src="@drawable/filled_star"/>
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@{star5}"
-                tools:src="@drawable/filled_star"/>
-        </LinearLayout>
+            android:orientation="horizontal"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -58,4 +58,11 @@ object DrawableUtils {
         }
         return getDrawable(context, R.drawable.empty_star)
     }
+
+    fun getStarRatingList(context: Context, isStarFilled: Boolean): Drawable? {
+        if(isStarFilled) {
+            return getDrawable(context, R.drawable.filled_star)
+        }
+        return getDrawable(context, R.drawable.empty_star)
+    }
 }

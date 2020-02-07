@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ContentDescription">
+
+    <data>
+
+        <import type="com.cassiano.starwars.R" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="star"
+            type="android.graphics.drawable.Drawable" />
+    </data>
+    <LinearLayout
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{star}"
+            tools:src="@drawable/filled_star"/>
+    </LinearLayout>
+</layout>

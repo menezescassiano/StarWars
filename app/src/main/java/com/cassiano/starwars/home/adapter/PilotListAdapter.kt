@@ -9,20 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cassiano.starwars.R
 import com.cassiano.starwars.home.model.PilotData
 
-class PilotListAdapter(private val list: ArrayList<PilotData>) :
-    RecyclerView.Adapter<PilotViewHolder>() {
+class PilotListAdapter(private val list: ArrayList<PilotData>) : RecyclerView.Adapter<PilotViewHolder>() {
 
     val selectedPilot: MutableLiveData<PilotData> = MutableLiveData()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PilotViewHolder {
-        return PilotViewHolder(
-            DataBindingUtil.inflate<ViewDataBinding>(
-                LayoutInflater.from(parent.context),
-                viewType,
-                parent,
-                false
-            )
-        )
+        return PilotViewHolder(DataBindingUtil.inflate<ViewDataBinding>(LayoutInflater.from(parent.context), viewType, parent, false))
     }
 
     override fun getItemCount(): Int {

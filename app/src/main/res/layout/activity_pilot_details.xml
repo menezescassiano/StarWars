@@ -58,22 +58,6 @@
             type="String" />
 
         <variable
-            name="star1"
-            type="android.graphics.drawable.Drawable" />
-        <variable
-            name="star2"
-            type="android.graphics.drawable.Drawable" />
-        <variable
-            name="star3"
-            type="android.graphics.drawable.Drawable" />
-        <variable
-            name="star4"
-            type="android.graphics.drawable.Drawable" />
-        <variable
-            name="star5"
-            type="android.graphics.drawable.Drawable" />
-
-        <variable
             name="textVisibility"
             type="Integer" />
     </data>
@@ -134,6 +118,7 @@
             tools:showIn="@layout/activity_pilot_details">
 
             <include
+                android:id="@+id/pilotLayout"
                 layout="@layout/layout_pilot_details"
                 app:drawable="@{drawable}"
                 app:title="@{title}"
@@ -144,11 +129,6 @@
                 app:onBackClick="@{onBackClick}"
                 app:distance="@{distance}"
                 app:duration="@{duration}"
-                app:star1="@{star1}"
-                app:star2="@{star2}"
-                app:star3="@{star3}"
-                app:star4="@{star4}"
-                app:star5="@{star5}"
                 app:textVisibility="@{textVisibility}" />
 
         </androidx.core.widget.NestedScrollView>

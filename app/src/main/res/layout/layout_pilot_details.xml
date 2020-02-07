@@ -54,22 +54,6 @@
             type="String" />
 
         <variable
-            name="star1"
-            type="android.graphics.drawable.Drawable" />
-        <variable
-            name="star2"
-            type="android.graphics.drawable.Drawable" />
-        <variable
-            name="star3"
-            type="android.graphics.drawable.Drawable" />
-        <variable
-            name="star4"
-            type="android.graphics.drawable.Drawable" />
-        <variable
-            name="star5"
-            type="android.graphics.drawable.Drawable" />
-
-        <variable
             name="textVisibility"
             type="Integer" />
     </data>
@@ -157,12 +141,8 @@
                 app:text="@{duration}" />
         </RelativeLayout>
         <include
+            android:id="@+id/pilotRatingLayout"
             layout="@layout/layout_pilot_rating"
-            app:star1="@{star1}"
-            app:star2="@{star2}"
-            app:star3="@{star3}"
-            app:star4="@{star4}"
-            app:star5="@{star5}"
             app:textVisibility="@{textVisibility}"/>
     </LinearLayout>
 </layout>
