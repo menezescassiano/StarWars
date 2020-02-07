@@ -29,12 +29,12 @@ object StringFormatUtils {
         return formatter.format(number)
     }
 
-    fun getHourMinSecFormat(context: Context, milliseconds: Int): String {
+    fun getHourMinSecFormat(milliseconds: Int): String {
         val seconds = (milliseconds / 1000) % 60
         val minutes = (milliseconds / (1000 * 60) % 60)
         val hours = (milliseconds / (1000 * 60 * 60) % 24)
 
-        return context.getString(R.string.hh_min_ss, hours, minutes, seconds)
+        return "$hours:$minutes:$seconds"
     }
 
 }

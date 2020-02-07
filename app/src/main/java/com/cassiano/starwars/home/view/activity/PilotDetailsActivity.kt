@@ -54,7 +54,7 @@ class PilotDetailsActivity : AppCompatActivity() {
             setVariable(
                 BR.distance,
                 pilot?.distance?.value?.let { distance -> getString(R.string.km_text, StringFormatUtils.getDistanceFormated(distance)) })
-            setVariable(BR.duration, pilot?.duration?.let { duration -> StringFormatUtils.getHourMinSecFormat(activity, duration) })
+            setVariable(BR.duration, pilot?.duration?.let { duration -> StringFormatUtils.getHourMinSecFormat(duration) })
             setVariable(BR.textVisibility, pilotRating?.let { rating -> setRatingTextVisibility(rating) })
 
             setVariable(BR.star1, pilotRating?.let { rating -> DrawableUtils.getStarRating(activity, 1, rating) })
