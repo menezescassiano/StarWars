@@ -50,15 +50,6 @@ object DrawableUtils {
         }
     }
 
-    fun getStarRating(context: Context, index: Int, count: Float): Drawable? {
-        if (count == 0.0f) {
-            return null
-        } else if (index <= count) {
-            return getDrawable(context, R.drawable.filled_star)
-        }
-        return getDrawable(context, R.drawable.empty_star)
-    }
-
     fun getStarRatingList(context: Context, isStarFilled: Boolean): Drawable? {
         if(isStarFilled) {
             return getDrawable(context, R.drawable.filled_star)
